@@ -21,3 +21,19 @@ a value of Expected Species
 \description{
 Calculate the Expected Species
 }
+\examples{
+es(S123[1, ], m = 300)
+es(S123[1, ], m = 2)
+es(S123[1, ], m = 100)
+es(S123[2, ], m = 100)
+es(S123[2, ], m = 100, method = "b")
+es(S123[2, ], m = 100, method = "a")
+
+es(S123, m = 200, MARGIN = 1)
+es(S123, m = 2, MARGIN = 2)
+
+es(S123[, 1:3])
+es(S123[1:3, ], m = 150)
+
+es(S123[1:3, ], m = 20, "b")
+}

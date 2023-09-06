@@ -1,12 +1,12 @@
 Package: rarestR
-Version: 0.0.0
-Date: 2023-09-05
+Version: 0.0.1
+Date: 2023-09-06
 Title: Functions for 
 Authors@R: c(
     person("Peng", "Zhao", role = c("aut", "cre"), email = "pengzhao20@outlook.com", comment = c(ORCID = "0000-0001-5267-9797")),
 	person("Yi", "Zou", role = c("aut"), comment = c(ORCID = "0000-0002-7082-9258")))
 Maintainer: Peng Zhao <pengzhao20@outlook.com>
-Depends: R (>= 3.1.0)
+Depends: R (>= 3.5.0)
 Imports:
 Suggests:
 Description: Functions for ...
@@ -16,3 +16,4 @@ BugReports: https://github.com/pzhaonet/rarestR/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 NeedsCompilation: no
+LazyData: true

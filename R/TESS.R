@@ -2,14 +2,13 @@
 #'
 #' @param x a data matrix for two samples representing two communities (plot x species)
 #' @param knots specifies the number of separate sample sizes of increasing value used for the calculation of ESS between 1 and the endpoint, which by default is set to knots=40
-#' @param plot a logical value that provides the fitted curve
 #' @param method the method the model used, with three options available as "auto", "logistic" and "weibull", with the default set as "auto"
 
 #' @return The asymptotic value (a), the model used in the estimation of TESS (either "Three" or "Four") and the model fit (r.sq).
 #' @export
 #'
 #' @examples
-tess <- function (x,knots=40,plot=FALSE)
+tess <- function (x,knots=40)
 {
     x <- as.matrix(x)
     if (nrow(x)!=2){warning("TESS only works for two samples");break}
@@ -23,7 +22,7 @@ tess <- function (x,knots=40,plot=FALSE)
     nm <- seq(from=1,to=log(min(rowSums(x))),length=knots)
     fm <- unique(floor(exp(nm)))
 
-    result <- data.frame(Dst = sapply(fm, function(fm) ESS(x,m=fm,index = "ESS")),
+    result <- data.frame(Dst = sapply(fm, function(fm) ess(x,m=fm,index = "ESS")),
                Logm=log(fm))
 
     a <- NA#Set a=NA if there is insufficient data to do the modelling
@@ -57,23 +56,24 @@ tess <- function (x,knots=40,plot=FALSE)
                   },
                  error  = function(e){parameter  <<- NA })
     }
-    if (is.na(a)==TRUE) {z <- list(a=a, Model.par = parameter)
-                         warning("Insufficient data to provide reliable estimators and associated s.e.")}else
-                         {
-                             if(plot==TRUE)
-                             {
-                                 with(result,plot(x=Logm,y=Dst,
-                                                  xlim=c(0,2*xmax),
-                                                  ylim=c(0,1.2*a),
-                                                  ylab="ESS",
-                                                  xlab="ln(m)",bty='n'))
-                                 Pred <- seq(0, 2*xmax, length = 1000)
-                                 lines(Pred,
-                                       predict(md, list(Logm = Pred )),
-                                       col="red")
-                             }
-                             z <- list(est=a,est.sd = s.d,model.par = parameter)
-                         }
-    return(z)
-}
 
+    if (!is.na(xmax)){
+      Predx <- seq(0, 2*xmax, length = 1000)
+      Predy <- predict(md, list(Logm = Predx))
+      attr(Predy, 'gradient') <- NULL
+      lst <- list(tbl = data.frame(est=round(a, 2), est.sd = round(s.d, 2),model.par = parameter),
+                result = result,
+                xmax = xmax,
+                Predx = Predx,
+                Predy = Predy)
+    } else {
+      lst <- list(tbl = data.frame(est=round(a, 2), est.sd = round(s.d, 2),model.par = parameter),
+                result = result)
+    }
+
+    class(lst) <- "rarestr"
+
+    if (is.na(a)) warning("Insufficient data to provide reliable estimators and associated s.e.")
+
+    return(lst)
+}

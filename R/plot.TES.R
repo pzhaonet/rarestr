@@ -9,7 +9,7 @@
 plot_tes <- function(TES_output){
   TESa <- TES_output$TESa
   TESb <- TES_output$TESb
-  par(mfrow = c(1, 2),mgp=c(2.5,1,0),las=1,mar=c(4,4,2,1))
+  oldpar <- par(mfrow = c(1, 2),mgp=c(2.5,1,0),las=1,mar=c(4,4,2,1))
   if (is.na(TESa$par[1])) {
     plot(1, type = "n", axes = FALSE, xlab = "", ylab = "", main="(a)")
     text(1, 1, 'NA')
@@ -27,4 +27,5 @@ plot_tes <- function(TES_output){
     lines(TESb$Predx, TESb$Predy, col="red")
     abline(h=TESb$par[1],lty=2)
   }
+  par(oldpar)
 }

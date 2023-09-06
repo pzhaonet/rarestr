@@ -9,12 +9,26 @@
 #' @export
 #'
 #' @examples
+#' es(S123[1,],m=300)
+#' es(S123[1,],m=2)
+#' es(S123[1,],m=100)
+#' es(S123[2,],m=100)
+#' es(S123[2,],m=100,method="b")
+#' es(S123[2,],m=100,method="a")
+#'
+#' es(S123,m=200,MARGIN=1)
+#' es(S123,m=2,MARGIN=2)
+#'
+#' es(S123[,1:3])
+#' es(S123[1:3,],m=150)
+#'
+#' es(S123[1:3,],m=20,"b")
 es <-  function (x,m,method=c("a","b"), MARGIN = 1)
 {
   method <- match.arg(method, c("a", "b"))
 
   if (length(dim(x)) == 2) {
-    results <- apply(x, MARGIN, function(y) ES(y, m, method))
+    results <- apply(x, MARGIN, function(y) es(y, m, method))
     return(results)
   }
   if (m<1){stop("m must be a positive value")}

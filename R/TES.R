@@ -22,7 +22,7 @@ tes <- function(x,knots=40){
     nm <- seq(from=1,to=log(sum(x)),length=knots)
     fm <- unique(floor(exp(nm)))
 
-    result <- data.frame(value = sapply(fm, function(fm) ES(x,m=fm,method = method)),
+    result <- data.frame(value = sapply(fm, function(fm) es(x,m=fm,method = method)),
                          Logm=log(fm))
 
     a <- NA#Set a=NA if there is insufficient data to do the modelling
@@ -79,7 +79,20 @@ tes <- function(x,knots=40){
   tbl[3, 1] <- round(mean(tbl[, 1]), 2)
   tbl[3, 2] <- round((sqrt(tbl[1, 2] ^ 2 + tbl[2, 2] ^ 2))/2, 2)
   rownames(tbl)[3] <- 'TESab'
-  return(list(summary = tbl,
+  lst <- list(tbl = tbl,
               TESa = TESa,
-              TESb = TESb))
+              TESb = TESb)
+  class(lst) <- "rarestr"
+  return(lst)
 }
+
+
+#' Title
+#'
+#' @param x
+#'
+#' @return
+#' @export
+#'
+#' @examples
+print.rarestr <- function(x){ print(x[[1]])}
