@@ -72,7 +72,7 @@ tess <- function (x,knots=40,plot=FALSE)
                                        predict(md, list(Logm = Pred )),
                                        col="red")
                              }
-                             z <- list(a=a,a.sd = s.d,Model.par = parameter,r.sq=r.sq)
+                             z <- list(est=a,est.sd = s.d,model.par = parameter)
                          }
     return(z)
 }

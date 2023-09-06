@@ -1,4 +1,4 @@
-Package: rarestr
+Package: rarestR
 Version: 0.0.0
 Date: 2023-09-05
 Title: Functions for 
@@ -11,8 +11,8 @@ Imports:
 Suggests:
 Description: Functions for ...
 License: MIT + file LICENSE
-URL: https://github.com/pzhaonet/rarestr
-BugReports: https://github.com/pzhaonet/rarestr/issues
+URL: https://github.com/pzhaonet/rarestR
+BugReports: https://github.com/pzhaonet/rarestR/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 NeedsCompilation: no

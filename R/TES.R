@@ -61,13 +61,13 @@ tes <- function(x,knots=40){
       Predx <- seq(0, 2*xmax, length = 1000)
       Predy <- predict(md, list(Logm = Predx))
       attr(Predy, 'gradient') <- NULL
-      z <- list(par = c(a=round(a, 2), a.sd = round(s.d, 2),Model.par = parameter),
+      z <- list(par = c(est=round(a, 2), est.sd = round(s.d, 2),model.par = parameter),
                 result = result,
                 xmax = xmax,
                 Predx = Predx,
                 Predy = Predy)
     } else {
-      z <- list(par = c(a=a, a.sd = s.d,Model.par = parameter),
+      z <- list(par = c(est=a, est.sd = s.d,model.par = parameter),
                 result = result)
     }
     return(z)
