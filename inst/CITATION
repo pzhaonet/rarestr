@@ -1,0 +1,13 @@
+bibentry(bibtype = "Article",
+         title = "Estimating total species richness: Fitting rarefaction by asymptotic approximation",
+         author = c(person(given = "Yi", family = "Zou", role = "aut"),
+                    person(given = "Peng", family = "Zhao", role = "aut"),
+                    person(given = c("Jan", "Christoph"), family = "Axmacher", role = "aut")),
+         journal      = "Ecosphere",
+         year         = "2023",
+	 volume       = "14",
+	 number       = "1",
+	 pages        = "e4363",
+	 doi          = "10.1002/ecs2.4363",
+	 header = "If you use the rarestR package, please cite:"
+)
