@@ -3,7 +3,6 @@
 #' @param TES_output the output from TES()
 #'
 #' @return a plot
-#' @export
 #'
 #' @examples
 plot_tes <- function(TES_output){

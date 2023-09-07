@@ -3,7 +3,6 @@
 #' @param TESS_output the output from tess()
 #'
 #' @return a plot
-#' @export
 #'
 #' @examples
 plot_tess <- function(TESS_output) {
@@ -24,3 +23,6 @@ plot_tess <- function(TESS_output) {
         col = "red")
 
 }
+
+
+
