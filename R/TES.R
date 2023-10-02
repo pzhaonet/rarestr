@@ -11,9 +11,10 @@ tes <- function(x,knots=40){
   TESab <- function (x,knots=40,method=c("a","b"))
   {
     method <- match.arg(method, c("a", "b"))
+    if (all( dim(as.matrix(x)) !=1)){stop("TES only works for one sample")}
     x <- as.vector(x)
     if (any(x < 0, na.rm = TRUE))
-    {warning("data have negative entries");break}
+    {stop("data have negative entries")}
     if (any(is.na(x)))
     {x [is.na(x)] <- 0; warning("empty data were replaced by '0' values")}
     if(!identical(all.equal(as.integer(x),  as.vector(x)), TRUE))

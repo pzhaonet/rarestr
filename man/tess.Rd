@@ -10,11 +10,9 @@ tess(x, knots = 40)
 \item{x}{a data matrix for two samples representing two communities (plot x species)}
 
 \item{knots}{specifies the number of separate sample sizes of increasing value used for the calculation of ESS between 1 and the endpoint, which by default is set to knots=40}
-
-\item{method}{the method the model used, with three options available as "auto", "logistic" and "weibull", with the default set as "auto"}
 }
 \value{
-The asymptotic value (a), the model used in the estimation of TESS (either "Three" or "Four") and the model fit (r.sq).
+estimated values and their standard deviations of TESS, and the model used in the estimation of TES, either 'logistic' or 'Weibull'
 }
 \description{
 Calculate the Total number of Expected Shared Species between two samples.

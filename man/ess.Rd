@@ -11,7 +11,10 @@ ess(x, m = 1, index = "CNESSa")
 
 \item{m}{the sample size parameter that represents the number of individuals randomly drawn from each sample, which by default is set to m=1, but can be changed according to the users' requirements. Rows with a total sample size <m will be excluded automatically from the analysis.}
 
-\item{index}{the dissimilarity measure used in the calculation, as one of the four options "CNESSa", "CNESS","NESS" and "ESS", with the default set as "CNESSa"}
+\item{index}{the distance measure used in the calculation, as one of the four options "CNESSa", "CNESS","NESS" and "ESS", with the default set as "CNESSa"}
+}
+\value{
+a pair-wised matrix
 }
 \description{
 Compute dissimilarity estimates between two samples based on Expected Species Shared (ESS)-measures, using abundance data for the species contained in each samples

@@ -2,16 +2,16 @@
 #'
 #' @param x a data matrix for two samples representing two communities (plot x species)
 #' @param knots specifies the number of separate sample sizes of increasing value used for the calculation of ESS between 1 and the endpoint, which by default is set to knots=40
-#' @param method the method the model used, with three options available as "auto", "logistic" and "weibull", with the default set as "auto"
 
-#' @return The asymptotic value (a), the model used in the estimation of TESS (either "Three" or "Four") and the model fit (r.sq).
+#' @return estimated values and their standard deviations of TESS, and the model used in the estimation of TES, either 'logistic' or 'Weibull'
+#' 
 #' @export
 #'
 #' @examples
 tess <- function (x,knots=40)
 {
     x <- as.matrix(x)
-    if (nrow(x)!=2){warning("TESS only works for two samples");break}
+    if (nrow(x)!=2){stop("TESS only works for two samples")}
     if (any(is.na(x) == TRUE))
     {x [is.na(x)] <- 0; warning("empty data were replaced by '0' values")}
     if(!identical(all.equal(as.integer(x),  as.vector(x)), TRUE))
