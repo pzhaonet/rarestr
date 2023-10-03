@@ -3,7 +3,7 @@
 #' @param x a data vector representing number of individuals for each species
 #' @param m the sample size parameter that represents the number of individuals randomly drawn from the sample, which by default is set to m=1, but can be changed according to the users' requirements. For ESa, m can not be larger than the sample size
 #' @param method the calculation approach of Expected Species used, with two options available as "a" and "b" to calculate ESa and ESb, with the default set as "a"
-#' @param MARGIN
+#' @param MARGIN a vector giving the subscripts which the function will be applied over, see "apply"
 #'
 #' @return a value of Expected Species
 #' @export
