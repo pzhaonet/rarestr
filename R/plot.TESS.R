@@ -5,7 +5,7 @@
 #' @param ... other arguments passed to plot()
 #' @return a plot
 plot_tess <- function(TESS_output, ...) {
-  oldpar <- par(mfrow = c(1, 1),mgp=c(2.5,1,0),las=1,mar=c(4,4,2,1))
+  oldpar <- par(mgp=c(2.5,1,0),las=1,mar=c(4,4,2,1))
   with(
     TESS_output$result,
     plot(
