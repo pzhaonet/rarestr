@@ -1,16 +1,21 @@
-#' Plot fitted curve for TES and TESS
+#' Plot the "rarestr" class
 #'
-#' @param x the output from tes() or tess()
+#' @param x a "rarestr" object
+#' @param ... other arguments passed to plot()
 #'
-#' @return a plot
+#' @return Plot the "rarestr" class
+
 #' @export
-#'
 #' @examples
-plot.rarestr <- function(x) {
+#' data(share, package = 'rarestR')
+#' Output_tes <- tes(share[1,])
+#' Output_tes
+#' plot(Output_tes)
+plot.rarestr <- function(x, ...) {
   if (nrow(x$tbl) == 1) {
-    plot_tess(x)
+    plot_tess(x, ...)
   }
   if (nrow(x$tbl) > 1) {
-    plot_tes(x)
+    plot_tes(x, ...)
   }
 }

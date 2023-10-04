@@ -1,11 +1,10 @@
 #' Plot fitted curve for TESS
 #'
+#' @importFrom graphics abline lines par
 #' @param TESS_output the output from tess()
-#'
+#' @param ... other arguments passed to plot()
 #' @return a plot
-#'
-#' @examples
-plot_tess <- function(TESS_output) {
+plot_tess <- function(TESS_output, ...) {
   oldpar <- par(mfrow = c(1, 1),mgp=c(2.5,1,0),las=1,mar=c(4,4,2,1))
   with(
     TESS_output$result,
@@ -15,7 +14,8 @@ plot_tess <- function(TESS_output) {
       xlim = c(0, 2 * TESS_output$xmax),
       ylim = c(0, 1.2 * TESS_output$tbl$est),
       ylab = "ESS",
-      xlab = "ln(m)"
+      xlab = "ln(m)",
+      ...
     )
   )
   lines(TESS_output$Predx,

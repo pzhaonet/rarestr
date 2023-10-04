@@ -1,12 +1,14 @@
 #' Calculation of Total Expected Species base on ESa, ESb and their average value
 #'
+#' @importFrom stats nls predict
 #' @param x a data vector representing number of individuals for each species
 #' @param knots specifies the number of separate sample sizes of increasing value used for the calculation of ES between 1 and the endpoint, which by default is set to knots=40
-#'
 #' @return a list, which contains a table of the summary of the estimated values and their standard deviations based on TESa, TESb, and TESab, and the model used in the estimation of TES, either 'logistic' or 'Weibull'
 #' @export
-#'
 #' @examples
+#' data(share, package = 'rarestR')
+#' Output_tes <- tes(share[1,])
+#' Output_tes
 tes <- function(x,knots=40){
   TESab <- function (x,knots=40,method=c("a","b"))
   {
@@ -87,13 +89,19 @@ tes <- function(x,knots=40){
   return(lst)
 }
 
-
-#' Title
+#' Print the "rarestr" class
 #'
-#' @param x
+#' @description This function prints the contents of a rarestr object.
 #'
-#' @return
+#' @param ... Other arguments passed to print().
+#' @param x a "rarestr" object#'
+#'
+#' @return Print the "rarestr" class
 #' @export
-#'
 #' @examples
-print.rarestr <- function(x){ print(x[[1]])}
+#' data(share, package = 'rarestR')
+#' Output_tes <- tes(share[1,])
+#' Output_tes
+print.rarestr <- function(x, ...) {
+  print(x[[1]], ...)
+}

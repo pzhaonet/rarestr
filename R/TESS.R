@@ -1,13 +1,14 @@
 #' Calculate the Total number of Expected Shared Species between two samples.
 #'
+#' @importFrom stats deviance nls predict
 #' @param x a data matrix for two samples representing two communities (plot x species)
 #' @param knots specifies the number of separate sample sizes of increasing value used for the calculation of ESS between 1 and the endpoint, which by default is set to knots=40
-
 #' @return estimated values and their standard deviations of TESS, and the model used in the estimation of TES, either 'logistic' or 'Weibull'
-#' 
 #' @export
-#'
 #' @examples
+#' data(share, package = 'rarestR')
+#' Output_tess <- tess(share[1:2,])
+#' Output_tess
 tess <- function (x,knots=40)
 {
     x <- as.matrix(x)

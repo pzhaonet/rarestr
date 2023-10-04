@@ -2,16 +2,24 @@
 % Please edit documentation in R/plot.rarestr.R
 \name{plot.rarestr}
 \alias{plot.rarestr}
-\title{Plot fitted curve for TES and TESS}
+\title{Plot the "rarestr" class}
 \usage{
-\method{plot}{rarestr}(x)
+\method{plot}{rarestr}(x, ...)
 }
 \arguments{
-\item{x}{the output from tes() or tess()}
+\item{x}{a "rarestr" object}
+
+\item{...}{other arguments passed to plot()}
 }
 \value{
-a plot
+Plot the "rarestr" class
 }
 \description{
-Plot fitted curve for TES and TESS
+Plot the "rarestr" class
+}
+\examples{
+data(share, package = 'rarestR')
+Output_tes <- tes(share[1,])
+Output_tes
+plot(Output_tes)
 }

@@ -1,13 +1,16 @@
 #' Compute dissimilarity estimates between two samples based on Expected Species Shared (ESS)-measures, using abundance data for the species contained in each samples
 #'
+#' @importFrom stats as.dist
 #' @param x a community data matrix (sample x species); sample name is the row name of the matrix
 #' @param m the sample size parameter that represents the number of individuals randomly drawn from each sample, which by default is set to m=1, but can be changed according to the users' requirements. Rows with a total sample size <m will be excluded automatically from the analysis.
 #' @param index the distance measure used in the calculation, as one of the four options "CNESSa", "CNESS","NESS" and "ESS", with the default set as "CNESSa"
-#'
 #' @return a pair-wised matrix
 #' @export
-#'
 #' @examples
+#' data(share, package = 'rarestR')
+#' ess(share)
+#' ess(share, m = 100)
+#' ess(share, m = 100, index = "ESS")
 ess <- function (x,m=1,index = "CNESSa")
 {
     indices <- c("CNESSa", "CNESS","NESS","ESS")

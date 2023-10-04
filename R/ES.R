@@ -3,26 +3,16 @@
 #' @param x a data vector representing number of individuals for each species
 #' @param m the sample size parameter that represents the number of individuals randomly drawn from the sample, which by default is set to m=1, but can be changed according to the users' requirements. For ESa, m can not be larger than the sample size
 #' @param method the calculation approach of Expected Species used, with two options available as "a" and "b" to calculate ESa and ESb, with the default set as "a"
-#' @param MARGIN
-#'
+#' @param MARGIN a vector giving the subscripts which the function will be applied over, see '\link[base]{apply}'.
 #' @return a value of Expected Species
 #' @export
-#'
 #' @examples
-#' es(S123[1,],m=300)
-#' es(S123[1,],m=2)
-#' es(S123[1,],m=100)
-#' es(S123[2,],m=100)
-#' es(S123[2,],m=100,method="b")
-#' es(S123[2,],m=100,method="a")
-#'
-#' es(S123,m=200,MARGIN=1)
-#' es(S123,m=2,MARGIN=2)
-#'
-#' es(S123[,1:3])
-#' es(S123[1:3,],m=150)
-#'
-#' es(S123[1:3,],m=20,"b")
+#' data(share, package = 'rarestR')
+#' rowSums(share) #The sum size of each sample is 100, 150 and 200
+#' es(share, m = 100)
+#' es(share, method = "b", m = 100)
+#' # When the m is larger than the total sample size, "NA" will be filled:
+#' es(share, m = 150)
 es <-  function (x,m,method=c("a","b"), MARGIN = 1)
 {
   method <- match.arg(method, c("a", "b"))
