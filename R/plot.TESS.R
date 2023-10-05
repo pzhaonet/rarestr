@@ -5,7 +5,9 @@
 #' @param ... other arguments passed to plot()
 #' @return a plot
 plot_tess <- function(TESS_output, ...) {
-  oldpar <- par(mgp=c(2.5,1,0),las=1,mar=c(4,4,2,1))
+  oldpar <- par(no.readonly = TRUE)
+  on.exit(par(oldpar))
+  par(mgp=c(2.5,1,0),las=1,mar=c(4,4,2,1))
   with(
     TESS_output$result,
     plot(
@@ -22,7 +24,6 @@ plot_tess <- function(TESS_output, ...) {
         TESS_output$Predy,
         col = "red")
   abline(h=TESS_output$tbl[1],lty=2)
-  par(oldpar)
 }
 
 
