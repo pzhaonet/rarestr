@@ -22,3 +22,6 @@ data(share, package = 'rarestR')
 Output_tess <- tess(share[1:2,])
 Output_tess
 }
+\references{
+\insertRef{zou2021}{rarestR}
+}

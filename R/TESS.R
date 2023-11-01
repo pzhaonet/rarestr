@@ -1,9 +1,11 @@
 #' Calculate the Total number of Expected Shared Species between two samples.
 #'
+#' @importFrom Rdpack reprompt
 #' @importFrom stats deviance nls predict
 #' @param x a data matrix for two samples representing two communities (plot x species)
 #' @param knots specifies the number of separate sample sizes of increasing value used for the calculation of ESS between 1 and the endpoint, which by default is set to knots=40
 #' @return estimated values and their standard deviations of TESS, and the model used in the estimation of TES, either 'logistic' or 'Weibull'
+#' @references \insertRef{zou2021}{rarestR}
 #' @export
 #' @examples
 #' data(share, package = 'rarestR')

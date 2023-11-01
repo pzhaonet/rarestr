@@ -96,7 +96,7 @@ of 100, 150 and 200 individuals from three three communities, containing
 
 Zou, Y, & Axmacher, JC (2021). Estimating the number of species shared
 by incompletely sampled communities. *Ecography*, *44*(7),
-1098-1108.[doi:10.1111/ecog.05625](https://doi.org/10.1111/ecog.05625)
+1098-1108. [doi:10.1111/ecog.05625](https://doi.org/10.1111/ecog.05625)
 
 Zou Y, Zhao P, Axmacher JC (2023). Estimating total species richness:
 Fitting rarefaction by asymptotic approximation. *Ecosphere*, *14*(1),

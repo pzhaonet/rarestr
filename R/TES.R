@@ -1,9 +1,11 @@
 #' Calculation of Total Expected Species base on ESa, ESb and their average value
 #'
+#' @importFrom Rdpack reprompt
 #' @importFrom stats nls predict
 #' @param x a data vector representing number of individuals for each species
 #' @param knots specifies the number of separate sample sizes of increasing value used for the calculation of ES between 1 and the endpoint, which by default is set to knots=40
 #' @return a list, which contains a table of the summary of the estimated values and their standard deviations based on TESa, TESb, and TESab, and the model used in the estimation of TES, either 'logistic' or 'Weibull'
+#' @references \insertRef{zou2023}{rarestR}
 #' @export
 #' @examples
 #' data(share, package = 'rarestR')

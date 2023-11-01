@@ -1,10 +1,12 @@
 #' Calculate the Expected Species
 #'
+#' @importFrom Rdpack reprompt
 #' @param x a data vector representing number of individuals for each species
 #' @param m the sample size parameter that represents the number of individuals randomly drawn from the sample, which by default is set to m=1, but can be changed according to the users' requirements. For ESa, m can not be larger than the sample size
 #' @param method the calculation approach of Expected Species used, with two options available as "a" and "b" to calculate ESa and ESb, with the default set as "a"
 #' @param MARGIN a vector giving the subscripts which the function will be applied over, see '\link[base]{apply}'.
 #' @return a value of Expected Species
+#' @references \insertRef{zou2023}{rarestR}
 #' @export
 #' @examples
 #' data(share, package = 'rarestR')

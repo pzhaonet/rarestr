@@ -25,3 +25,6 @@ ess(share)
 ess(share, m = 100)
 ess(share, m = 100, index = "ESS")
 }
+\references{
+\insertRef{zou2020}{rarestR}
+}

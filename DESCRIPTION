@@ -7,7 +7,8 @@ Authors@R: c(
 	person("Yi", "Zou", role = c("aut"), comment = c(ORCID = "0000-0002-7082-9258")))
 Maintainer: Peng Zhao <pengzhao20@outlook.com>
 Depends: R (>= 3.5.0)
-Imports:
+Imports: Rdpack
+RdMacros: Rdpack
 Suggests:
 Description: Calculate rarefaction-based alpha- and beta-diversity. Offer parametric extrapolation to estimate the total expected species in a single community and the total expected shared species between two communities. Visualize the curve-fitting for these estimators.
 License: MIT + file LICENSE
