@@ -7,7 +7,7 @@
 plot_tess <- function(TESS_output, ...) {
   oldpar <- par(no.readonly = TRUE)
   on.exit(par(oldpar))
-  par(mgp=c(2.5,1,0),las=1,mar=c(4,4,2,1))
+  par(mgp = c(2.5,1,0), las = 1, mar = c(4,4,2,1))
   with(
     TESS_output$result,
     plot(
@@ -23,8 +23,5 @@ plot_tess <- function(TESS_output, ...) {
   lines(TESS_output$Predx,
         TESS_output$Predy,
         col = "red")
-  abline(h=TESS_output$tbl[1],lty=2)
+  abline(h = TESS_output$tbl[1], lty = 2)
 }
-
-
-
