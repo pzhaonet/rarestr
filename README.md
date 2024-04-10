@@ -94,6 +94,8 @@ of 100, 150 and 200 individuals from three three communities, containing
 
 ## References
 
+Zou, Y, & Axmacher, JC (2021). The Chord-Normalized Expected Species Shared (CNESS)- distance represents a superior measure of species turnover patterns. *Methods in Ecology and Evolution*, *11*(2), 273-280. [doi:10.1111/2041-210X.13333](https://doi.org/10.1111/2041-210X.13333)
+
 Zou, Y, & Axmacher, JC (2021). Estimating the number of species shared
 by incompletely sampled communities. *Ecography*, *44*(7),
 1098-1108. [doi:10.1111/ecog.05625](https://doi.org/10.1111/ecog.05625)
