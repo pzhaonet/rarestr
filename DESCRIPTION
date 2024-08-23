@@ -1,6 +1,6 @@
 Package: rarestR
-Version: 1.0.0
-Date: 2024-03-20
+Version: 1.0.1
+Date: 2024-08-16
 Title: Rarefaction-Based Species Richness Estimator 
 Authors@R: c(
     person("Peng", "Zhao", role = c("aut", "cre"), email = "pengzhao20@outlook.com", comment = c(ORCID = "0000-0001-5267-9797")),
@@ -9,7 +9,8 @@ Maintainer: Peng Zhao <pengzhao20@outlook.com>
 Depends: R (>= 3.5.0)
 Imports: Rdpack
 RdMacros: Rdpack
-Suggests:
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
 Description: Calculate rarefaction-based alpha- and beta-diversity. Offer parametric extrapolation to estimate the total expected species in a single community and the total expected shared species between two communities. Visualize the curve-fitting for these estimators.
 License: MIT + file LICENSE
 URL: https://github.com/pzhaonet/rarestR

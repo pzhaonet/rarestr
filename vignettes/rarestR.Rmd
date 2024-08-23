@@ -1,0 +1,75 @@
+---
+title: "rarestR: An R package for Rarefaction-Based Species Richness Estimator"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{rarestR: An R package for Rarefaction-Based Species Richness Estimator}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+## Introduction
+
+**rarestR** is an R package of rarefaction-based species richness estimator. This package is designed to calculate rarefaction-based $\alpha$- and $\beta$-diversity. It also offers parametric extrapolation to estimate the total expected species in a single community and the total expected shared species between two communities. The package also provides visualization of the curve-fitting for these estimators.
+
+## Installation
+
+```{r, eval=FALSE}
+# Stable version
+install.packages('rarestR')
+# Development version
+remotes::install_github('pzhaonet/rarestR')
+```
+
+## Load rarestR and the demo dataset
+
+```{r}
+library(rarestR)
+data("share")
+```
+
+The dataset **share** is a matrix with 3 rows and 142 columns. It comprises three samples randomly drawn from three simulated communities. Every community consists of 100 species with approximately 100,000 individuals following a log-normal distribution (mean = 6.5, SD = 1). Setting the first community as control group, the second and third community shared a total of 25 and 50 species with the control. A more detailed description of the control and scenario groups can be found in Zou and Axmacher (2021). The share dataset represents a random subsample of 100, 150 and 200 individuals from three three communities, containing 58, 57 and 74 species, respectively.
+
+## Calculate the Expected Species
+
+```{r}
+es(share, m = 100)
+es(share, method = "b", m = 100)
+# When the m is larger than the total sample size, "NA" will be filled:
+es(share, m = 150)
+```
+
+## Compute dissimilarity estimates between two samples based on Expected Species Shared (ESS)-measures
+
+```{r}
+ess(share)
+ess(share, m = 100)
+ess(share, m = 100, index = "ESS")
+```
+
+## Calculate and visualize the Total Expected Species base on ESa, ESb and their average value
+
+```{r}
+Output_tes <- tes(share[1,])
+Output_tes
+```
+
+```{r, eval=FALSE}
+plot(Output_tes)
+```
+
+## Calculate and visualize the Total number of Expected Shared Species between two samples
+
+```{r}
+Output_tess <- tess(share[1:2,])
+Output_tess
+```
+
+```{r, eval=FALSE}
+plot(Output_tess)
+```
+
+## References
+
+Zou, Y, & Axmacher, JC (2021). Estimating the number of species shared by incompletely sampled communities. _Ecography_, *44*(7), 1098-1108. [doi:10.1111/ecog.05625]( https://doi.org/10.1111/ecog.05625)
+
+Zou Y, Zhao P, Axmacher JC (2023). Estimating total species richness: Fitting rarefaction by asymptotic approximation.  _Ecosphere_, *14*(1), e4363. [doi:10.1002/ecs2.4363](https://doi.org/10.1002/ecs2.4363).
