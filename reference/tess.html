@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rarestR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +57,27 @@
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>estimated values and their standard deviations of TESS, and the model used in the estimation of TES, either 'logistic' or 'Weibull'</p>
+<p>a list in a self-defined class 'rarestr'. See "Details".</p>
     </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>The value returned by the (tess()) function in the 'rarestr' class is a list containing five parts:</p><dl><dt>par</dt>
+<dd><p>A data frame of the summary of the estimated values and their standard deviations based on TESa, TESb, and TESab, and the model used in the estimation of TES, either 'logistic' or 'Weibull'.</p></dd>
+
+<dt>result</dt>
+<dd><p>A data frame of the simulated results.</p></dd>
+
+<dt>xmax</dt>
+<dd><p>A maximum x value.</p></dd>
+
+<dt>Predx</dt>
+<dd><p>A vector of the predicted x value.</p></dd>
+
+<dt>Predy</dt>
+<dd><p>A vector of the predicted y value.</p></dd>
+
+
+</dl></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Zou Y, Axmacher JC (2021).
