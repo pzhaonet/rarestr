@@ -1,3 +1,5 @@
+[![R-CMD-check](https://github.com/pzhaonet/rarestr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pzhaonet/rarestr/actions/workflows/R-CMD-check.yaml)
+  
 ## Introduction
 
 **rarestR** is an R package of rarefaction-based species richness

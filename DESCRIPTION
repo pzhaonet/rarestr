@@ -9,13 +9,17 @@ Maintainer: Peng Zhao <pengzhao20@outlook.com>
 Depends: R (>= 3.5.0)
 Imports: Rdpack
 RdMacros: Rdpack
-Suggests: knitr, rmarkdown
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Description: Calculate rarefaction-based alpha- and beta-diversity. Offer parametric extrapolation to estimate the total expected species in a single community and the total expected shared species between two communities. Visualize the curve-fitting for these estimators.
 License: MIT + file LICENSE
-URL: https://github.com/pzhaonet/rarestR
+URL: https://github.com/pzhaonet/rarestR, https://pzhaonet.github.io/rarestr/
 BugReports: https://github.com/pzhaonet/rarestR/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 NeedsCompilation: no
 LazyData: true
+Config/testthat/edition: 3
