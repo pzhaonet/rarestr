@@ -15,7 +15,7 @@
 #' es(share, method = "b", m = 100)
 #' # When the m is larger than the total sample size, "NA" will be filled:
 #' es(share, m = 150)
-es <-  function(x, m, method = c("a","b"), MARGIN = 1){
+es <-  function(x, m = 1, method = c("a","b"), MARGIN = 1){
   method <- match.arg(method, c("a", "b"))
   if (length(dim(x)) == 2) {
     results <- apply(x, MARGIN, function(y) es(y, m, method))
