@@ -13,9 +13,21 @@ tess(x, knots = 40)
 }
 \value{
 estimated values and their standard deviations of TESS, and the model used in the estimation of TES, either 'logistic' or 'Weibull'
+
+a list in a self-defined class 'rarestr'. See "Details".
 }
 \description{
 Calculate the Total number of Expected Shared Species between two samples.
+}
+\details{
+The value returned by the \code(tess()) function in the 'rarestr' class is a list containing five parts:
+\describe{
+\item{par}{A data frame of the summary of the estimated values and their standard deviations based on TESa, TESb, and TESab, and the model used in the estimation of TES, either 'logistic' or 'Weibull'.}
+\item{result}{A data frame of the simulated results.}
+\item{xmax}{A maximum x value.}
+\item{Predx}{A vector of the predicted x value.}
+\item{Predy}{A vector of the predicted y value.}
+}
 }
 \examples{
 data(share, package = 'rarestR')

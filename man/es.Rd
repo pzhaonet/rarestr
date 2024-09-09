@@ -4,7 +4,7 @@
 \alias{es}
 \title{Calculate the Expected Species}
 \usage{
-es(x, m, method = c("a", "b"), MARGIN = 1)
+es(x, m = 1, method = c("a", "b"), MARGIN = 1)
 }
 \arguments{
 \item{x}{a data vector representing number of individuals for each species}

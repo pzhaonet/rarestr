@@ -12,10 +12,19 @@ tes(x, knots = 40)
 \item{knots}{specifies the number of separate sample sizes of increasing value used for the calculation of ES between 1 and the endpoint, which by default is set to knots=40}
 }
 \value{
-a list, which contains a table of the summary of the estimated values and their standard deviations based on TESa, TESb, and TESab, and the model used in the estimation of TES, either 'logistic' or 'Weibull'
+a list in a self-defined class 'rarestr'. See "Details".
 }
 \description{
 Calculation of Total Expected Species base on ESa, ESb and their average value
+}
+\details{
+The value returned by the \code(tes()) function in the 'rarestr' class is a list containing three parts:
+\describe{
+\item{par}{A data frame of the summary of the estimated values and their standard deviations based on TESa, TESb, and TESab, and the model used in the estimation of TES, either 'logistic' or 'Weibull'.}
+\item{TESa}{A list of the modeled results with the TESa method.}
+\item{TESb}{A list of the modeled results with the TESb method.}
+}
+Both TESa and TESb contain five parts, including a data frame of the parameters (\code{$par}), a data frame of the simulated results (\code{$result}), a maximum x value (\code{$xmax}), a vector of the predicted x value (\code{$Predx}), and a vector of the predicted y value (\code{$Predy})
 }
 \examples{
 data(share, package = 'rarestR')
