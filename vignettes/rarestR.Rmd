@@ -27,7 +27,7 @@ library(rarestR)
 data("share")
 ```
 
-The dataset **share** is a matrix with 3 rows and 142 columns. It comprises three samples randomly drawn from three simulated communities. Every community consists of 100 species with approximately 100,000 individuals following a log-normal distribution (mean = 6.5, SD = 1). Setting the first community as control group, the second and third community shared a total of 25 and 50 species with the control. A more detailed description of the control and scenario groups can be found in Zou and Axmacher (2021). The share dataset represents a random subsample of 100, 150 and 200 individuals from three three communities, containing 58, 57 and 74 species, respectively.
+The dataset **share** is a matrix with 3 rows and 142 columns. It comprises three samples randomly drawn from three simulated communities. Every community consists of 100 species with approximately 100,000 individuals following a log-normal distribution (mean = 6.5, SD = 1). Setting the first community as control group, the second and third community shared a total of 25 and 50 species with the control. A more detailed description of the control and scenario groups can be found in Zou and Axmacher (2021). The share dataset represents a random subsample of 100, 150, and 200 individuals from three three communities, containing 58, 57, and 74 species, respectively.
 
 ## Calculate the Expected Species
 
@@ -49,11 +49,11 @@ ess(share, m = 100, index = "ESS")
 ## Calculate and visualize the Total Expected Species base on ESa, ESb and their average value
 
 ```{r}
-Output_tes <- tes(share[1,])
+Output_tes <- tes(x = share[1,])
 Output_tes
 ```
 
-```{r, eval=FALSE}
+```{r, fig.width=6, fig.height=3}
 plot(Output_tes)
 ```
 
@@ -64,9 +64,58 @@ Output_tess <- tess(share[1:2,])
 Output_tess
 ```
 
-```{r, eval=FALSE}
+```{r, fig.width=3, fig.height=3}
 plot(Output_tess)
 ```
+
+## Customize the plots
+
+The **rarestR** package provides a S3 method to use the generic `plot()` function for visualizing the output of the `tes()` and `tess()` functions in a fast way and consistent way, which is friendly to R beginners. Advanced R users might want to customize the plots. They can extract the modelled data and use other data visualization functions. Here we demonstrate how to customize the plot of the Total Expected Species calculated on the basis of the previous example.
+
+The `tes()` function returns a list (`Output_tes`) with (1) a data frame (`$tbl`) of the summary of the estimated values and their standard deviations based on TESa, TESb, and TESab, and the model used in the estimation of TES, either 'logistic' or 'Weibull'., (2) a list (`$TESa`) of the modeled results with the TESa method, and (3) a list (`$TESb`) of the modelled results with the TESb method. By default, only the data frame is printed in the R console when printing `Output_tes`:
+
+```{r}
+Output_tes
+Output_tes$tbl
+```
+
+You can explicitly print the two lists as well:
+
+```{r, eval=FALSE}
+Output_tes$TESa
+Output_tes$TESb
+```
+
+or see their structures:
+
+```{r}
+str(Output_tes$TESa)
+str(Output_tes$TESb)
+```
+
+Thus, you can extract the simulated results and predicted x and y values for TESa:
+
+```{r, eval=FALSE}
+Output_tes$TESa$result
+Output_tes$TESa$Predx
+Output_tes$TESa$Predy
+```
+
+or TESb in a similar way.
+
+Then, you can visualize these data in your favourite way. Here we use the **ggplot2** package:
+
+```{r, fig.width=3, fig.height=3}
+library(ggplot2)
+ggplot() +
+  geom_line(aes(Output_tes$TESa$Predx, Output_tes$TESa$Predy)) +
+  geom_point(aes(Logm, value), data = Output_tes$TESa$result, colour = 'red', shape = 1, size = 3) +
+  geom_hline(yintercept = as.numeric(Output_tes$TESa$par[1]), linetype = 2) + 
+  lims(x = c(0, 20), y = c(0, 150)) +
+  labs(x = 'ln(m)', y = 'ES')
+```
+
+For more details, see the *Details* section in the help documents for `tes()` and `tess()`.
 
 ## References
 
