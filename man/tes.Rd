@@ -4,12 +4,10 @@
 \alias{tes}
 \title{Calculation of Total Expected Species base on ESa, ESb and their average value}
 \usage{
-tes(x, knots = 40)
+tes(x)
 }
 \arguments{
 \item{x}{a data vector representing number of individuals for each species}
-
-\item{knots}{specifies the number of separate sample sizes of increasing value used for the calculation of ES between 1 and the endpoint, which by default is set to knots=40}
 }
 \value{
 a list in a self-defined class 'rarestr'. See "Details".

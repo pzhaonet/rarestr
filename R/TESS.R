@@ -3,8 +3,6 @@
 #' @importFrom Rdpack reprompt
 #' @importFrom stats deviance nls predict
 #' @param x a data matrix for two samples representing two communities (plot x species)
-#' @param knots specifies the number of separate sample sizes of increasing value used for the calculation of ESS between 1 and the endpoint, which by default is set to knots=40
-#' @return estimated values and their standard deviations of TESS, and the model used in the estimation of TES, either 'logistic' or 'Weibull'
 #' @return a list in a self-defined class 'rarestr'. See "Details".
 #' @details
 #' The value returned by the \code{tess()} function in the 'rarestr' class is a list containing five parts:
@@ -21,8 +19,9 @@
 #' data(share, package = 'rarestR')
 #' Output_tess <- tess(share[1:2,])
 #' Output_tess
-tess <- function (x, knots = 40) {
+tess <- function (x) {
     x <- as.matrix(x)
+    knots <- 40
     if (nrow(x) != 2){
       stop("TESS only works for two samples")
       }
@@ -31,10 +30,10 @@ tess <- function (x, knots = 40) {
       warning("empty data were replaced by '0' values")
       }
     if(!identical(all.equal(as.integer(x),  as.vector(x)), TRUE)) {
-      warning("results may be meaningless with non-integer data in method")
+      warning("results may be meaningless with non-integer data in the method")
     }
     if (any(x < 0, na.rm = TRUE)) {
-      warning("results may be meaningless because data have negative entries in method")
+      warning("results may be meaningless because data have negative entries in the method")
     }
     nm <- seq(from = 1, to = log(min(rowSums(x))), length = knots)
     fm <- unique(floor(exp(nm)))
@@ -56,10 +55,10 @@ tess <- function (x, knots = 40) {
       c <- exp(Coe[3, 1])
       d <- Coe[4, 1]
       xmax <-  (-(log(0.1 * a/b)) / c) ^ (1 / d) #The 1/2 max value of x axis in plotting, at the value of y=0.9*a
-      r.sq <- 1 - (deviance(md) / sum((result$Dst - mean(result$Dst)) ^ 2)) #Model fit
+      r.sq <- 1 - (deviance(md) / sum((result$Dst - mean(result$Dst)) ^ 2))
     },
     error = function(e) Error_four <<- TRUE) #Assign TRUE to Error_four
-    if (Error_four) { #If users ask for three parameter model, or if an error accur for four prarmeter model when user ask for "auto", then run three parameter
+    if (Error_four) { #If users ask for three parameter model, or if an error occur for four parameter model when users ask for "auto", then run three parameter model
         parameter <- "logistic"
         tryCatch({
           md <- nls(Dst ~ SSlogis(Logm, Asym, xmid, scal), data = result)
@@ -67,7 +66,7 @@ tess <- function (x, knots = 40) {
           a <- Coe[1, 1]
           s.d <- sqrt(Coe[1, 2] ^ 2 * (nrow(result) - 3))
           xmax <-  1.8 * Coe[2, 1]
-          r.sq <- 1 - (deviance(md) / sum((result$Dst - mean(result$Dst)) ^ 2))#Model fit
+          r.sq <- 1 - (deviance(md) / sum((result$Dst - mean(result$Dst)) ^ 2))
         },
         error = function(e) parameter  <<- NA)
     }
@@ -86,6 +85,6 @@ tess <- function (x, knots = 40) {
                   result = result)
     }
     class(lst) <- "rarestr"
-    if (is.na(a)) warning("Insufficient data to provide reliable estimators and associated s.e.")
+    if (is.na(a)) warning("Fail to provide reliable estimators and associated s.e due to insufficient data or mismatched distribution")
     return(lst)
 }

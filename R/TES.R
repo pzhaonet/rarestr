@@ -3,7 +3,6 @@
 #' @importFrom Rdpack reprompt
 #' @importFrom stats nls predict
 #' @param x a data vector representing number of individuals for each species
-#' @param knots specifies the number of separate sample sizes of increasing value used for the calculation of ES between 1 and the endpoint, which by default is set to knots=40
 #' @return a list in a self-defined class 'rarestr'. See "Details".
 #' @details
 #' The value returned by the \code{tes()} function in the 'rarestr' class is a list containing three parts:
@@ -20,7 +19,8 @@
 #' data(share, package = 'rarestR')
 #' Output_tes <- tes(share[1,])
 #' Output_tes
-tes <- function(x, knots = 40){
+tes <- function(x){
+  knots <- 40
   TESab <- function (x, knots = 40, method = c("a","b")){
     method <- match.arg(method, c("a", "b"))
     if (all(dim(as.matrix(x)) != 1)) {
@@ -35,7 +35,7 @@ tes <- function(x, knots = 40){
       warning("empty data were replaced by '0' values")
     }
     if (!identical(all.equal(as.integer(x), as.vector(x)), TRUE)) {
-      warning("results may be meaningless with non-integer data in method")
+      warning("results may be meaningless with non-integer data in the method")
     }
 
     nm <- seq(from = 1, to = log(sum(x)), length = knots)
@@ -75,7 +75,7 @@ tes <- function(x, knots = 40){
     }
     if (is.na(a)) {
       s.d <- NA
-      warning("Insufficient data to provide reliable estimators and associated s.e.")
+      warning("Fail to provide reliable estimators and associated s.e due to insufficient data or mismatched distribution")
     }
     if (!is.na(xmax)){
       Predx <- seq(0, 2 * xmax, length = 1000)
