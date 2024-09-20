@@ -103,16 +103,12 @@ Output_tes$TESa$Predy
 
 or TESb in a similar way.
 
-Then, you can visualize these data in your favourite way. Here we use the **ggplot2** package:
+Then, you can visualize these data in your favourite way. For example:
 
 ```{r, fig.width=3, fig.height=3}
-library(ggplot2)
-ggplot() +
-  geom_line(aes(Output_tes$TESa$Predx, Output_tes$TESa$Predy)) +
-  geom_point(aes(Logm, value), data = Output_tes$TESa$result, colour = 'red', shape = 1, size = 3) +
-  geom_hline(yintercept = as.numeric(Output_tes$TESa$par[1]), linetype = 2) + 
-  lims(x = c(0, 20), y = c(0, 150)) +
-  labs(x = 'ln(m)', y = 'ES')
+plot(Output_tes$TESa$Predx, Output_tes$TESa$Predy, type = 'l', las = 1, 
+     xlab = 'ln(m)', ylab = 'ES', log = 'y')
+points(Output_tes$TESa$result$Logm, Output_tes$TESa$result$value, col = 'blue')
 ```
 
 For more details, see the *Details* section in the help documents for `tes()` and `tess()`.
