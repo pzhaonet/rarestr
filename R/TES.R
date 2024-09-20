@@ -22,6 +22,7 @@
 tes <- function(x){
     TESab <- function (x, method = c("a","b")){
     method <- match.arg(method, c("a", "b"))
+    knots <- 40
     if (all(dim(as.matrix(x)) != 1)) {
       stop("TES only works for one sample")
     }
@@ -36,7 +37,6 @@ tes <- function(x){
     if (!identical(all.equal(as.integer(x), as.vector(x)), TRUE)) {
       warning("results may be meaningless with non-integer data in the method")
     }
-    knots <- 40
     nm <- seq(from = 1, to = log(sum(x)), length = knots)
     fm <- unique(floor(exp(nm)))
 
