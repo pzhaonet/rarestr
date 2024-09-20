@@ -1,9 +1,9 @@
 pandoc: 3.1.11
-pkgdown: 2.1.0
+pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   rarestR: rarestR.html
-last_built: 2024-09-09T06:04Z
+last_built: 2024-09-20T01:22Z
 urls:
   reference: https://pzhaonet.github.io/rarestr/reference
   article: https://pzhaonet.github.io/rarestr/articles
