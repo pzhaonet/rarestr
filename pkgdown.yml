@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   rarestR: rarestR.html
-last_built: 2024-09-20T11:23Z
+last_built: 2024-09-20T15:15Z
 urls:
   reference: https://pzhaonet.github.io/rarestr/reference
   article: https://pzhaonet.github.io/rarestr/articles
