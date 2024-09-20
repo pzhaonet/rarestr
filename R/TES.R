@@ -20,8 +20,7 @@
 #' Output_tes <- tes(share[1,])
 #' Output_tes
 tes <- function(x){
-  knots <- 40
-  TESab <- function (x, knots = 40, method = c("a","b")){
+    TESab <- function (x, method = c("a","b")){
     method <- match.arg(method, c("a", "b"))
     if (all(dim(as.matrix(x)) != 1)) {
       stop("TES only works for one sample")
@@ -37,7 +36,7 @@ tes <- function(x){
     if (!identical(all.equal(as.integer(x), as.vector(x)), TRUE)) {
       warning("results may be meaningless with non-integer data in the method")
     }
-
+    knots <- 40
     nm <- seq(from = 1, to = log(sum(x)), length = knots)
     fm <- unique(floor(exp(nm)))
 
@@ -92,8 +91,8 @@ tes <- function(x){
     }
     return(z)
   }
-  TESa <- TESab(x, knots = knots, method="a")
-  TESb <- TESab(x, knots = knots, method="b")
+  TESa <- TESab(x, method="a")
+  TESb <- TESab(x, method="b")
   tbl <- as.data.frame(rbind(TESa = TESa$par, TESb = TESb$par))
   tbl[, 1:2] <- apply(tbl[, 1:2], 1:2, as.numeric)
   tbl[3, 1] <- round(mean(tbl[, 1]), 2)
