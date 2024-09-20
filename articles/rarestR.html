@@ -96,8 +96,8 @@ communities. Every community consists of 100 species with approximately
 community shared a total of 25 and 50 species with the control. A more
 detailed description of the control and scenario groups can be found in
 Zou and Axmacher (2021). The share dataset represents a random subsample
-of 100, 150 and 200 individuals from three three communities, containing
-58, 57 and 74 species, respectively.</p>
+of 100, 150, and 200 individuals from three three communities,
+containing 58, 57, and 74 species, respectively.</p>
 </div>
 <div class="section level2">
 <h2 id="calculate-the-expected-species">Calculate the Expected Species<a class="anchor" aria-label="anchor" href="#calculate-the-expected-species"></a>
@@ -142,7 +142,7 @@ Expected Species Shared (ESS)-measures<a class="anchor" aria-label="anchor" href
 and their average value<a class="anchor" aria-label="anchor" href="#calculate-and-visualize-the-total-expected-species-base-on-esa-esb-and-their-average-value"></a>
 </h2>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">Output_tes</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tes.html">tes</a></span><span class="op">(</span><span class="va">share</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">Output_tes</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tes.html">tes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">share</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">Output_tes</span></span></code></pre></div>
 <pre><code><span><span class="co">##          est est.sd model.par</span></span>
 <span><span class="co">## TESa  138.50   2.46  logistic</span></span>
@@ -150,6 +150,7 @@ and their average value<a class="anchor" aria-label="anchor" href="#calculate-an
 <span><span class="co">## TESab 115.56  16.37      &lt;NA&gt;</span></span></code></pre>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">Output_tes</span><span class="op">)</span></span></code></pre></div>
+<p><img src="rarestR_files/figure-html/unnamed-chunk-6-1.png" width="576"></p>
 </div>
 <div class="section level2">
 <h2 id="calculate-and-visualize-the-total-number-of-expected-shared-species-between-two-samples">Calculate and visualize the Total number of Expected Shared Species
@@ -162,6 +163,83 @@ between two samples<a class="anchor" aria-label="anchor" href="#calculate-and-vi
 <span><span class="co">## 1 23.28   2.59  logistic</span></span></code></pre>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">Output_tess</span><span class="op">)</span></span></code></pre></div>
+<p><img src="rarestR_files/figure-html/unnamed-chunk-8-1.png" width="288"></p>
+</div>
+<div class="section level2">
+<h2 id="customize-the-plots">Customize the plots<a class="anchor" aria-label="anchor" href="#customize-the-plots"></a>
+</h2>
+<p>The <strong>rarestR</strong> package provides a S3 method to use the
+generic <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code> function for visualizing the output of the
+<code><a href="../reference/tes.html">tes()</a></code> and <code><a href="../reference/tess.html">tess()</a></code> functions in a fast way and
+consistent way, which is friendly to R beginners. Advanced R users might
+want to customize the plots. They can extract the modelled data and use
+other data visualization functions. Here we demonstrate how to customize
+the plot of the Total Expected Species calculated on the basis of the
+previous example.</p>
+<p>The <code><a href="../reference/tes.html">tes()</a></code> function returns a list
+(<code>Output_tes</code>) with (1) a data frame (<code>$tbl</code>) of
+the summary of the estimated values and their standard deviations based
+on TESa, TESb, and TESab, and the model used in the estimation of TES,
+either ‘logistic’ or ‘Weibull’., (2) a list (<code>$TESa</code>) of the
+modeled results with the TESa method, and (3) a list
+(<code>$TESb</code>) of the modelled results with the TESb method. By
+default, only the data frame is printed in the R console when printing
+<code>Output_tes</code>:</p>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Output_tes</span></span></code></pre></div>
+<pre><code><span><span class="co">##          est est.sd model.par</span></span>
+<span><span class="co">## TESa  138.50   2.46  logistic</span></span>
+<span><span class="co">## TESb   92.63  32.65   Weibull</span></span>
+<span><span class="co">## TESab 115.56  16.37      &lt;NA&gt;</span></span></code></pre>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Output_tes</span><span class="op">$</span><span class="va">tbl</span></span></code></pre></div>
+<pre><code><span><span class="co">##          est est.sd model.par</span></span>
+<span><span class="co">## TESa  138.50   2.46  logistic</span></span>
+<span><span class="co">## TESb   92.63  32.65   Weibull</span></span>
+<span><span class="co">## TESab 115.56  16.37      &lt;NA&gt;</span></span></code></pre>
+<p>You can explicitly print the two lists as well:</p>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Output_tes</span><span class="op">$</span><span class="va">TESa</span></span>
+<span><span class="va">Output_tes</span><span class="op">$</span><span class="va">TESb</span></span></code></pre></div>
+<p>or see their structures:</p>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">Output_tes</span><span class="op">$</span><span class="va">TESa</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## List of 5</span></span>
+<span><span class="co">##  $ par   : Named chr [1:3] "138.5" "2.46" "logistic"</span></span>
+<span><span class="co">##   ..- attr(*, "names")= chr [1:3] "est" "est.sd" "model.par"</span></span>
+<span><span class="co">##  $ result:'data.frame':  33 obs. of  2 variables:</span></span>
+<span><span class="co">##   ..$ value: num [1:33] 1.98 2.95 3.91 4.85 5.78 ...</span></span>
+<span><span class="co">##   ..$ Logm : num [1:33] 0.693 1.099 1.386 1.609 1.792 ...</span></span>
+<span><span class="co">##  $ xmax  : num 8.88</span></span>
+<span><span class="co">##  $ Predx : num [1:1000] 0 0.0178 0.0355 0.0533 0.0711 ...</span></span>
+<span><span class="co">##  $ Predy : num [1:1000] 0.996 1.013 1.031 1.05 1.068 ...</span></span></code></pre>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">Output_tes</span><span class="op">$</span><span class="va">TESb</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## List of 5</span></span>
+<span><span class="co">##  $ par   : Named chr [1:3] "92.63" "32.65" "Weibull"</span></span>
+<span><span class="co">##   ..- attr(*, "names")= chr [1:3] "est" "est.sd" "model.par"</span></span>
+<span><span class="co">##  $ result:'data.frame':  33 obs. of  2 variables:</span></span>
+<span><span class="co">##   ..$ value: num [1:33] 1.97 2.92 3.85 4.76 5.64 ...</span></span>
+<span><span class="co">##   ..$ Logm : num [1:33] 0.693 1.099 1.386 1.609 1.792 ...</span></span>
+<span><span class="co">##  $ xmax  : num 7.1</span></span>
+<span><span class="co">##  $ Predx : num [1:1000] 0 0.0142 0.0284 0.0427 0.0569 ...</span></span>
+<span><span class="co">##  $ Predy : num [1:1000] 2.27 2.27 2.27 2.27 2.27 ...</span></span></code></pre>
+<p>Thus, you can extract the simulated results and predicted x and y
+values for TESa:</p>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Output_tes</span><span class="op">$</span><span class="va">TESa</span><span class="op">$</span><span class="va">result</span></span>
+<span><span class="va">Output_tes</span><span class="op">$</span><span class="va">TESa</span><span class="op">$</span><span class="va">Predx</span></span>
+<span><span class="va">Output_tes</span><span class="op">$</span><span class="va">TESa</span><span class="op">$</span><span class="va">Predy</span></span></code></pre></div>
+<p>or TESb in a similar way.</p>
+<p>Then, you can visualize these data in your favourite way. For
+example:</p>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">Output_tes</span><span class="op">$</span><span class="va">TESa</span><span class="op">$</span><span class="va">Predx</span>, <span class="va">Output_tes</span><span class="op">$</span><span class="va">TESa</span><span class="op">$</span><span class="va">Predy</span>, type <span class="op">=</span> <span class="st">'l'</span>, las <span class="op">=</span> <span class="fl">1</span>, </span>
+<span>     xlab <span class="op">=</span> <span class="st">'ln(m)'</span>, ylab <span class="op">=</span> <span class="st">'ES'</span>, log <span class="op">=</span> <span class="st">'y'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="va">Output_tes</span><span class="op">$</span><span class="va">TESa</span><span class="op">$</span><span class="va">result</span><span class="op">$</span><span class="va">Logm</span>, <span class="va">Output_tes</span><span class="op">$</span><span class="va">TESa</span><span class="op">$</span><span class="va">result</span><span class="op">$</span><span class="va">value</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span></span></code></pre></div>
+<p><img src="rarestR_files/figure-html/unnamed-chunk-13-1.png" width="288"></p>
+<p>For more details, see the <em>Details</em> section in the help
+documents for <code><a href="../reference/tes.html">tes()</a></code> and <code><a href="../reference/tess.html">tess()</a></code>.</p>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
