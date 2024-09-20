@@ -4,12 +4,12 @@
 \alias{es}
 \title{Calculate the Expected Species}
 \usage{
-es(x, m = 1, method = c("a", "b"), MARGIN = 1)
+es(x, m, method = c("a", "b"), MARGIN = 1)
 }
 \arguments{
 \item{x}{a data vector representing number of individuals for each species}
 
-\item{m}{the sample size parameter that represents the number of individuals randomly drawn from the sample, which by default is set to m=1, but can be changed according to the users' requirements. For ESa, m can not be larger than the sample size}
+\item{m}{the sample size parameter that represents the number of individuals randomly drawn from the sample. For ESa, m can not be larger than the sample size}
 
 \item{method}{the calculation approach of Expected Species used, with two options available as "a" and "b" to calculate ESa and ESb, with the default set as "a"}
 

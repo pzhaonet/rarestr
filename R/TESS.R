@@ -7,7 +7,7 @@
 #' @return estimated values and their standard deviations of TESS, and the model used in the estimation of TES, either 'logistic' or 'Weibull'
 #' @return a list in a self-defined class 'rarestr'. See "Details".
 #' @details
-#' The value returned by the \code(tess()) function in the 'rarestr' class is a list containing five parts:
+#' The value returned by the \code{tess()} function in the 'rarestr' class is a list containing five parts:
 #' \describe{
 #'   \item{par}{A data frame of the summary of the estimated values and their standard deviations based on TESa, TESb, and TESab, and the model used in the estimation of TES, either 'logistic' or 'Weibull'.}
 #'   \item{result}{A data frame of the simulated results.}

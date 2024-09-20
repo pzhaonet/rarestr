@@ -20,7 +20,7 @@ a list in a self-defined class 'rarestr'. See "Details".
 Calculate the Total number of Expected Shared Species between two samples.
 }
 \details{
-The value returned by the \code(tess()) function in the 'rarestr' class is a list containing five parts:
+The value returned by the \code{tess()} function in the 'rarestr' class is a list containing five parts:
 \describe{
 \item{par}{A data frame of the summary of the estimated values and their standard deviations based on TESa, TESb, and TESab, and the model used in the estimation of TES, either 'logistic' or 'Weibull'.}
 \item{result}{A data frame of the simulated results.}

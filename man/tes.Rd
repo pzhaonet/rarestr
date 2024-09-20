@@ -18,7 +18,7 @@ a list in a self-defined class 'rarestr'. See "Details".
 Calculation of Total Expected Species base on ESa, ESb and their average value
 }
 \details{
-The value returned by the \code(tes()) function in the 'rarestr' class is a list containing three parts:
+The value returned by the \code{tes()} function in the 'rarestr' class is a list containing three parts:
 \describe{
 \item{par}{A data frame of the summary of the estimated values and their standard deviations based on TESa, TESb, and TESab, and the model used in the estimation of TES, either 'logistic' or 'Weibull'.}
 \item{TESa}{A list of the modeled results with the TESa method.}

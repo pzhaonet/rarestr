@@ -19,6 +19,7 @@ License: MIT + file LICENSE
 URL: https://github.com/pzhaonet/rarestR, https://pzhaonet.github.io/rarestr/
 BugReports: https://github.com/pzhaonet/rarestR/issues
 Roxygen: list(markdown = TRUE)
+Encoding: UTF-8
 RoxygenNote: 7.3.2
 NeedsCompilation: no
 LazyData: true
