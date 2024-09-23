@@ -1,45 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/reference/es.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ess.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plot.rarestr.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plot_tes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plot_tess.html</loc>
-  </url>
-  <url>
-    <loc>/reference/print.rarestr.html</loc>
-  </url>
-  <url>
-    <loc>/reference/share.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tess.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://pzhaonet.github.io/rarestr/404.html</loc></url>
+<url><loc>https://pzhaonet.github.io/rarestr/articles/index.html</loc></url>
+<url><loc>https://pzhaonet.github.io/rarestr/articles/rarestR.html</loc></url>
+<url><loc>https://pzhaonet.github.io/rarestr/authors.html</loc></url>
+<url><loc>https://pzhaonet.github.io/rarestr/index.html</loc></url>
+<url><loc>https://pzhaonet.github.io/rarestr/LICENSE-text.html</loc></url>
+<url><loc>https://pzhaonet.github.io/rarestr/reference/es.html</loc></url>
+<url><loc>https://pzhaonet.github.io/rarestr/reference/ess.html</loc></url>
+<url><loc>https://pzhaonet.github.io/rarestr/reference/index.html</loc></url>
+<url><loc>https://pzhaonet.github.io/rarestr/reference/plot.rarestr.html</loc></url>
+<url><loc>https://pzhaonet.github.io/rarestr/reference/plot_tes.html</loc></url>
+<url><loc>https://pzhaonet.github.io/rarestr/reference/plot_tess.html</loc></url>
+<url><loc>https://pzhaonet.github.io/rarestr/reference/print.rarestr.html</loc></url>
+<url><loc>https://pzhaonet.github.io/rarestr/reference/share.html</loc></url>
+<url><loc>https://pzhaonet.github.io/rarestr/reference/tes.html</loc></url>
+<url><loc>https://pzhaonet.github.io/rarestr/reference/tess.html</loc></url>
 </urlset>
+
