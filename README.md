@@ -96,4 +96,4 @@ of 100, 150 and 200 individuals from three three communities, containing
 
 ## Reference
 
-Zou, Y., Zhao, P., Wu, N., Lai, J., Peres-Neto, P.R. and Axmacher, J.C. (2025), rarestR: An R Package Using Rarefaction Metrics to Estimate α- and β-Diversity for Incomplete Samples. Divers Distrib, 31: e13954.
+Zou Y, Zhao P, Wu N, Lai J, Peres-Neto PR, Axmacher JC (2025). “rarestR: An R Package Using Rarefaction Metrics to Estimate α- and β-Diversity for Incomplete Samples.” _Diversity and Distributions_, *31*(1), e13954. [doi:10.1111/ddi.13954](https://doi.org/10.1111/ddi.13954).
