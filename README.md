@@ -94,14 +94,6 @@ of 100, 150 and 200 individuals from three three communities, containing
 
     plot(Output_tess)
 
-## References
+## Reference
 
-Zou, Y, & Axmacher, JC (2020). The Chord-Normalized Expected Species Shared (CNESS)- distance represents a superior measure of species turnover patterns. *Methods in Ecology and Evolution*, *11*(2), 273-280. [doi:10.1111/2041-210X.13333](https://doi.org/10.1111/2041-210X.13333)
-
-Zou, Y, & Axmacher, JC (2021). Estimating the number of species shared
-by incompletely sampled communities. *Ecography*, *44*(7),
-1098-1108. [doi:10.1111/ecog.05625](https://doi.org/10.1111/ecog.05625)
-
-Zou Y, Zhao P, Axmacher JC (2023). Estimating total species richness:
-Fitting rarefaction by asymptotic approximation. *Ecosphere*, *14*(1),
-e4363. [doi:10.1002/ecs2.4363](https://doi.org/10.1002/ecs2.4363).
+Zou, Y., Zhao, P., Wu, N., Lai, J., Peres-Neto, P.R. and Axmacher, J.C. (2025), rarestR: An R Package Using Rarefaction Metrics to Estimate α- and β-Diversity for Incomplete Samples. Divers Distrib, 31: e13954.

@@ -13,7 +13,7 @@
 #'   \item{Predx}{A vector of the predicted x value.}
 #'   \item{Predy}{A vector of the predicted y value.}
 #' }
-#' @references \insertRef{zou2021}{rarestR}
+#' @references \insertRef{zou2025}{rarestR}
 #' @export
 #' @examples
 #' data(share, package = 'rarestR')

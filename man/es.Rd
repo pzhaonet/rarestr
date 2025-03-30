@@ -30,5 +30,5 @@ es(share, method = "b", m = 100)
 es(share, m = 150)
 }
 \references{
-\insertRef{zou2023}{rarestR}
+\insertRef{zou2025}{rarestR}
 }

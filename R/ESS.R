@@ -5,7 +5,7 @@
 #' @param x a community data matrix (sample x species); sample name is the row name of the matrix
 #' @param m the sample size parameter that represents the number of individuals randomly drawn from each sample, which by default is set to m=1, but can be changed according to the users' requirements. Rows with a total sample size <m will be excluded automatically from the analysis.
 #' @param index the distance measure used in the calculation, as one of the four options "CNESSa", "CNESS","NESS" and "ESS", with the default set as "CNESSa"
-#' @references \insertRef{zou2020}{rarestR}
+#' @references \insertRef{zou2025}{rarestR}
 #' @return a pair-wised matrix
 #' @export
 #' @examples

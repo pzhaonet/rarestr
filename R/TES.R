@@ -13,7 +13,7 @@
 #' }
 #' Both TESa and TESb contain five parts, including a data frame of the parameters (\code{$par}), a data frame of the simulated results (\code{$result}), a maximum x value (\code{$xmax}), a vector of the predicted x value (\code{$Predx}), and a vector of the predicted y value (\code{$Predy})
 #'
-#' @references \insertRef{zou2023}{rarestR}
+#' @references \insertRef{zou2025}{rarestR}
 #' @export
 #' @examples
 #' data(share, package = 'rarestR')

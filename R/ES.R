@@ -6,7 +6,7 @@
 #' @param method the calculation approach of Expected Species used, with two options available as "a" and "b" to calculate ESa and ESb, with the default set as "a"
 #' @param MARGIN a vector giving the subscripts which the function will be applied over, see '\link[base]{apply}'.
 #' @return a value of Expected Species
-#' @references \insertRef{zou2023}{rarestR}
+#' @references \insertRef{zou2025}{rarestR}
 #' @export
 #' @examples
 #' data(share, package = 'rarestR')

@@ -2,7 +2,7 @@ citHeader("To cite the rarestR package in publications:")
 
 bibentry(
   bibtype = "Article",
-  title = "Estimating total species richness: Fitting rarefaction by asymptotic approximation",
+  title = "rarestR: An R Package Using Rarefaction Metrics to Estimate $\\alpha$-and $\\beta$-Diversity for Incomplete Samples",
   author = c(
     person(
       given = "Yi",
@@ -15,53 +15,30 @@ bibentry(
       role = "aut"
     ),
     person(
+      given = c("Naicheng"),
+      family = "Wu",
+      role = "aut"
+    ),
+    person(
+      given = c("Jiangshan"),
+      family = "Lai",
+      role = "aut"
+    ),
+    person(
+      given = c("Pedro", "R"),
+      family = "Peres-Neto",
+      role = "aut"
+    ),
+    person(
       given = c("Jan", "Christoph"),
       family = "Axmacher",
       role = "aut"
     )
   ),
-  journal      = "Ecosphere",
-  year         = "2023",
-  volume       = "14",
-  number       = "1",
-  pages        = "e4363",
-  doi          = "10.1002/ecs2.4363",
-  header = "If you use the es() or the tes() function, please cite:"
-)
-
-bibentry(
-  bibtype = "Article",
-  author = c(
-    person(given = "Yi",
-           family = "Zou"),
-    person(given = c("Jan", "Christoph"),
-           family = "Axmacher")
-  ),
-  title = "The Chord-Normalized Expected Species Shared (CNESS)-distance represents a superior measure of species turnover patterns",
-  journal = "Methods in Ecology and Evolution",
-  year = "2020",
-  volume = "11",
-  number = "2",
-  pages = "273--280",
-  doi = "10.1111/2041-210X.13333",
-  header = "If you use the ess() function, please cite:"
-)
-
-
-bibentry(
-  bibtype = "Article",
-  author = c(
-    person(given = "Yi",
-           family = "Zou"),
-    person(given = c("Jan", "Christoph"),
-           family = "Axmacher")
-  ),
-  title = "Estimating the number of species shared by incompletely sampled communities",
-  journal = "Ecography",
-  year = "2021",
-  volume = "44",
-  number = "7",
-  pages = "1098--1108",
-  doi = "10.1111/ecog.05625",
-  header = "If you use the tess() function, please cite:"
+  journal = "Diversity and Distributions",
+  volume = "31",
+  number = "1",
+  pages = "e13954",
+  doi = "10.1111/ddi.13954",
+  year = "2025"
 )
